@@ -1,7 +1,5 @@
 # CourseLLM – Product Requirements Document (Draft)
 
-<!-- Copilot: This is the initial draft. Review and refine sections before promoting to PRD.md -->
-
 ## 1. Overview & Vision
 
 **Product Name:** CourseLLM (working title)
@@ -9,9 +7,15 @@
 **Vision:**  
 Help teachers and students in a Computer Science Department at university better teach and learn using AI that enhances existing course material.
 
-<!-- Copilot: please expend some on what is context-aware, context aware with respect to what? -->
 **Core Principle:**  
-CourseLLM does not create new material or replace existing AI tools (NotebookLM, chatbots). Instead, it enhances the learning experience around existing course material by providing intelligent, context-aware assistance.
+CourseLLM does not create new material or replace existing AI tools (NotebookLM, chatbots). Instead, it enhances the learning experience around existing course material by providing intelligent, context-aware assistance—i.e., assistance grounded in:
+- Course artifacts: syllabus, slides, notes, assignments, rubrics, code/templates.
+- Instructor intent: learning objectives, policies, allowed tools, grading criteria.
+- Student state: prior interactions, mastery signals, prerequisite completion, pace.
+- Activity context: the current topic, question, or assignment in focus.
+- Platform context: LMS metadata such as due dates, course section, and resources.
+
+Responses reference source materials, use course-specific terminology, adapt difficulty and scaffolding to the student’s mastery, respect integrity rules (e.g., socratic prompts, no direct answers when disallowed), and cite where information came from.
 
 ---
 
@@ -30,17 +34,17 @@ CourseLLM does not create new material or replace existing AI tools (NotebookLM,
 
 ---
 
-<!-- Copilot: expend a little about socratic learning-->
 ## 3. Objectives & Success Metrics
 
 ### Primary Objectives:
 1. **Student Learning Enhancement** – Enable deeper, personalized learning of existing course material.
 2. **Teacher Efficiency** – Reduce time spent on content preparation, grading, and progress monitoring.
-3. **Responsible AI Use** – Promote socratic learning, prevent shortcut behavior, ensure academic integrity.
+3. **Responsible AI Use** – Promote socratic learning (a teaching method based on asking guided questions rather than providing direct answers, encouraging students to discover concepts through structured dialogue and critical thinking), prevent shortcut behavior, ensure academic integrity.
 
 ### Success Metrics:
-<!-- Copilot: suggest KPIs for each objective -->
-<!-- Copilot: please replace this comment with a comment with what you think could be added here to enhance this section (suggest different tregectories of changes)-->
+
+The following metrics align with each objective. Additional KPIs to consider include: learning outcome metrics (pre/post-test scores, exam performance, concept mastery rates), behavioral metrics (time spent on deep vs. shallow interactions, question quality evolution), engagement quality (Socratic dialogue depth, self-correction rates), teacher adoption rates (feature utilization, content upload frequency), and long-term impact (course completion rates, grade distributions).
+
 | Metric | Target | Measurement Method |
 |--------|--------|-------------------|
 | Student engagement with course chatbot | 70% weekly active users | Usage analytics |
@@ -82,18 +86,19 @@ CourseLLM does not create new material or replace existing AI tools (NotebookLM,
   - Use **socratic learning**: ask clarifying questions before answering.
 - **User Stories:** See [UserStories.md](UserStories.md#F1)
 
-<!-- Copilot: dis ambiguate skill trees, who create them and how do they constrain the student ?-->
 #### **F2: Personalized Learning Trajectories**
-- **Description:** System tracks student progress through ordered topics (learning trajectories).
+- **Description:** System tracks student progress through ordered topics (learning trajectories). Teachers design skill trees by defining course topics and their prerequisite dependencies (e.g., "loops" requires "variables"). Each node represents a topic; edges represent prerequisites. Students cannot access advanced topics until prerequisites are mastered (via completing exercises, passing quizzes, or teacher assessment). The chatbot adjusts responses based on which topics are "unlocked" for the student, and teachers can override constraints for exceptional cases (e.g., transfer students).
+
 - **Key Behaviors:**
   - Recommend next topics based on mastery of prerequisites.
   - Visualize progress on skill trees.
 - **User Stories:** See [UserStories.md](UserStories.md#F2)
 
 #### **F3: Practice & Assessment Generation**
-- **Description:** Generate personalized quizzes, exercises, and exams.
+- **Description:** Generate personalized quizzes, exercises, and exams with adaptive difficulty.
 - **Key Behaviors:**
-  - Adjust difficulty based on student level.
+  - Adjust difficulty based on student level and performance.
+  - Provide progressively challenging questions as students demonstrate mastery.
   - Provide instant feedback and explanations.
 - **User Stories:** See [UserStories.md](UserStories.md#F3)
 
@@ -136,7 +141,10 @@ CourseLLM does not create new material or replace existing AI tools (NotebookLM,
 #### **T3: Assignment Creation & Validation**
 - **Description:** Create quizzes, assignments, exams; ensure they are testable, LLM-resilient, appropriate length/complexity.
 - **Key Behaviors:**
-  - AI checks for ambiguity, LLM-solvability.
+  - Generate assignment templates for teacher editing.
+  - Test assignments for LLM resilience by running them through LLMs.
+  - Flag assignments as "too easy" and suggest modifications.
+  - Check for ambiguity and suggest rubric criteria.
 - **User Stories:** See [UserStories.md](UserStories.md#T3)
 
 #### **T4: Progress Monitoring**
@@ -146,9 +154,11 @@ CourseLLM does not create new material or replace existing AI tools (NotebookLM,
 - **User Stories:** See [UserStories.md](UserStories.md#T4)
 
 #### **T5: Grading Assistance**
-- **Description:** AI-assisted grading for open-ended assignments.
+- **Description:** AI-assisted grading for coding and open-ended assignments, including automated unit testing and style checking.
 - **Key Behaviors:**
+  - Generate and validate unit tests for coding assignments (teacher approval required).
   - Provide draft grades and feedback for teacher review.
+  - Flag potential plagiarism and AI-generated submissions.
 - **User Stories:** See [UserStories.md](UserStories.md#T5)
 
 #### **T6: Cheating Detection**
@@ -194,7 +204,6 @@ CourseLLM does not create new material or replace existing AI tools (NotebookLM,
 
 ## 8. Timeline / Milestones
 
-<!-- Copilot: adjust based on semester schedule -->
 
 | Milestone | Deadline | Deliverables |
 |-----------|----------|--------------|
@@ -220,4 +229,3 @@ Key references:
 
 **Status:** Draft  
 **Last Updated:** 2025-11-06  
-**Reviewed By:** [Pending]

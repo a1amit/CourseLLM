@@ -1,9 +1,7 @@
 # Data Model – CourseLLM (Conceptual)
 
-<!-- Copilot: This is a high-level conceptual model. Implementation details TBD. -->
-
 ## Overview
-This document outlines the key entities, relationships, and attributes for the CourseLLM system.
+This document outlines the key entities, relationships, and attributes for the CourseLLM system at a high conceptual level. Implementation details including specific database technologies, optimization strategies, and scaling considerations will be determined during the technical design phase.
 
 ---
 

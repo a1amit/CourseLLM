@@ -1,11 +1,10 @@
 # CourseLLM – Product Requirements Document
 
-<!-- This is the live PRD. Update via Pull Requests only. -->
-
 ## Status
 - **Version:** 0.1
 - **Last Updated:** 2025-11-06
-- **Approved By:** [Pending]
+- **Update Policy:** This document is updated via reviewed Pull Requests only
+
 ---
 
 ## 1. Overview & Vision
@@ -81,8 +80,8 @@ CourseLLM enhances the learning experience around existing course material throu
 See [UserStories.md](UserStories.md) for detailed user stories.
 
 - **F1: Course Material Chatbot** – AI-powered Q&A scoped to course content with socratic guidance
-- **F2: Personalized Learning Trajectories** – Visual skill trees tracking mastery through topics
-- **F3: Practice & Assessment Generation** – Adaptive quizzes and exercises with instant feedback
+- **F2: Personalized Learning Trajectories** – Visual skill trees tracking mastery through topics, with optional advanced topic recommendations
+- **F3: Practice & Assessment Generation** – Adaptive quizzes with progressive difficulty and instant feedback
 - **F4: Motivation & Context** – Real-world applications and historical context for topics
 - **F5: Technical Support** – Installation help, debugging, submission validation
 - **F6: Additional Resources** – Curated papers, videos, tutorials per topic
@@ -93,9 +92,9 @@ See [UserStories.md](UserStories.md) for detailed user stories.
 
 - **T1: Content Upload & Indexing** – Upload and index course materials for RAG
 - **T2: Learning Trajectory Management** – Define topic dependencies and mastery criteria
-- **T3: Assignment Creation & Validation** – Generate and test LLM-resilient assignments
+- **T3: Assignment Creation & Validation** – Generate and validate assignments for testability and LLM resilience
 - **T4: Progress Monitoring** – Dashboard showing class and individual student progress
-- **T5: Grading Assistance** – AI-assisted grading with human review
+- **T5: Grading Assistance** – AI-assisted grading with automated unit testing and human review
 - **T6: Cheating Detection** – Flag AI-generated and plagiarized submissions
 
 ---
@@ -160,4 +159,3 @@ See [UserStories.md](UserStories.md) for detailed user stories.
 - **Status:** Living Document
 - **Version:** 0.1
 - **Last Updated:** 2025-11-06
-- **Next Review:** Week 3 (after user story validation)

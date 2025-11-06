@@ -1,7 +1,5 @@
 # User Stories – CourseLLM
 
-<!-- Copilot: Detailed user stories per persona, organized by feature -->
-
 ## Format
 Each user story follows this structure:
 - **ID:** Unique identifier
@@ -56,15 +54,15 @@ Each user story follows this structure:
   - Progress percentages per topic
   - Estimated time to complete remaining topics
 
-<!--copilot: please also include suggested topics more advance then the one tought in the confind of the selabus of the class, but only as suggestions (always state by the chatbot that we need)-->
-
 #### US-S2.2: Recommended Next Steps
 - **As a** student who just completed a topic
-- **I want to** receive recommendations for what to study next
-- **So that** I follow an optimal learning path
+- **I want to** receive recommendations for what to study next, including both required next topics and optional advanced topics beyond the course syllabus
+- **So that** I follow an optimal learning path and can explore deeper if interested
 - **Acceptance Criteria:**
-  - System suggests next topic based on prerequisites
-  - Explains why this topic is recommended
+  - System suggests next required topic based on prerequisites
+  - Optionally suggests advanced topics beyond the syllabus (clearly marked as "optional" and "not required for course completion")
+  - Chatbot explicitly states when suggesting advanced content that it's supplementary
+  - Explains why each topic is recommended
   - Allows student to choose alternative path
 
 ---
@@ -81,14 +79,14 @@ Each user story follows this structure:
   - Instant feedback with explanations
   - Performance saved to learning trajectory
 
-<!--copilot: if needed, please add something about progressive learning, like how the question should become tougher and tougher in each itteration-->
 #### US-S3.2: Adaptive Difficulty
 - **As a** student practicing a topic
-- **I want to** receive harder or easier questions based on my performance
-- **So that** I'm always challenged at the right level
+- **I want to** receive progressively harder or easier questions based on my performance, with questions becoming increasingly challenging as I demonstrate mastery
+- **So that** I'm always challenged at the right level and can build deeper understanding through progressive difficulty
 - **Acceptance Criteria:**
   - System adjusts difficulty after 3 consecutive correct/incorrect answers
-  - Student sees current difficulty level
+  - Questions become progressively tougher within each practice session as student succeeds
+  - Difficulty increase follows a structured progression (basic → intermediate → advanced → expert)
   - Can manually override difficulty
 
 ---
@@ -138,7 +136,7 @@ Each user story follows this structure:
 ---
 
 ### F6: Additional Resources
-<!--copilot: can you disambiguate "Links verified annually"-->
+
 #### US-S6.1: Discover Supplementary Materials
 - **As a** student wanting to go deeper
 - **I want to** find curated papers, videos, tutorials on current topic
@@ -146,7 +144,6 @@ Each user story follows this structure:
 - **Acceptance Criteria:**
   - Resources tagged by topic, difficulty, type
   - 3-5 top resources per topic
-  - Links verified annually
 
 ---
 
@@ -172,15 +169,15 @@ Each user story follows this structure:
   - Identifies missing prerequisite explanations
   - Suggests reordering topics for logical flow
 
-<!--copilot: explain about the indexing process further"-->
 #### US-T1.3: Index for RAG
 - **As a** instructor
 - **I want to** confirm my materials are indexed and searchable
 - **So that** the chatbot gives accurate, grounded answers
 - **Acceptance Criteria:**
-  - Indexing completes within 10 minutes per course
-  - Sample queries return relevant excerpts
-  - Teacher can re-index after updates
+  - Indexing completes within 10 minutes per course (system converts documents to text, splits into chunks, generates embeddings using LLM, stores in vector database)
+  - Sample queries return relevant excerpts with source citations
+  - Teacher can view indexing status and statistics (number of chunks, topics covered)
+  - Teacher can re-index after updates (manual trigger or automatic detection of file changes)
 
 ---
 
@@ -217,22 +214,15 @@ Each user story follows this structure:
   - System generates 3-5 questions/tasks
   - Teacher edits before publishing
 
-<!--copilot: remove T3.2 (and reindex)"-->
-#### US-T3.2: Test LLM Resilience
+#### US-T3.2: Validate Testability
 - **As a** instructor
-- **I want to** check if an assignment is solvable by ChatGPT/Copilot
-- **So that** I can adjust it to require deeper thinking
-- **Acceptance Criteria:**
-  - System runs assignment through LLM, provides solutions
-  - Flags "too easy" if LLM solves in < 30 seconds
-  - Suggests modifications (require code explanation, add constraints)
-
-#### US-T3.3: Validate Testability
-- **As a** instructor
-- **I want to** verify all questions have clear, unambiguous correct answers
-- **So that** grading is fair and consistent
+- **I want to** verify all questions have clear, unambiguous correct answers and test LLM resilience
+- **So that** grading is fair and consistent and assignments require deeper thinking
 - **Acceptance Criteria:**
   - System flags ambiguous wording
+  - System runs assignment through LLM and provides sample solutions
+  - Flags assignments as "too easy" if LLM solves in < 30 seconds
+  - Suggests modifications to increase LLM resilience (require code explanation, add constraints, require multi-step reasoning)
   - Suggests rubric criteria for open-ended questions
   - Teacher approves before final publish
 
@@ -262,25 +252,27 @@ Each user story follows this structure:
 
 ### T5: Grading Assistance
 
-<!--copilot: remove T5.1 (and reindex)"-->
-#### US-T5.1: AI-Assisted Essay Grading
-- **As a** instructor grading 50 essay submissions
-- **I want to** receive draft grades and feedback from AI
-- **So that** I focus on edge cases instead of repeating feedback
-- **Acceptance Criteria:**
-  - AI grades based on rubric
-  - Provides sentence-level comments
-  - Teacher reviews and adjusts before publishing
-
-<!--copilot: i think here we need to maybe suggest the LLM make unit tests for the assignment and the teacher approve it (in addition to everyting else as check plagiarism and so on)-->
-#### US-T5.2: Batch Code Review
+#### US-T5.1: Batch Code Review with Unit Testing
 - **As a** instructor grading coding assignments
-- **I want to** see automated checks (correctness, style, efficiency)
-- **So that** I quickly identify which submissions need deeper review
+- **I want to** use AI-generated unit tests to automatically validate student code, check style and efficiency, and detect plagiarism patterns
+- **So that** I can quickly identify which submissions are correct and which need deeper review
 - **Acceptance Criteria:**
-  - Runs unit tests, linters, complexity analysis
-  - Flags submissions with unusual patterns (possible plagiarism)
-  - Teacher manually reviews flagged submissions
+  - System suggests unit tests for the assignment based on requirements (teacher reviews and approves test suite before deployment)
+  - Runs approved unit tests against all student submissions
+  - Flags submissions with unusual patterns (possible plagiarism or AI-generated code)
+  - Provides correctness scores, style reports, and efficiency metrics
+  - Teacher manually reviews flagged submissions and edge cases
+
+#### US-T5.2: AI-Assisted Essay Grading
+- **As a** instructor grading essay or open-ended submissions
+- **I want to** receive draft grades and feedback from AI
+- **So that** I focus on edge cases and nuanced evaluation instead of repeating common feedback
+- **Acceptance Criteria:**
+  - AI grades based on rubric provided by teacher
+  - Provides sentence-level comments and suggestions
+  - Identifies common patterns across submissions
+  - Teacher reviews and adjusts all grades before publishing
+  - System learns from teacher corrections to improve future suggestions
 
 ---
 
@@ -330,4 +322,3 @@ Each user story follows this structure:
 
 **Status:** Draft  
 **Last Updated:** 2025-11-06  
-**Reviewed By:** [Pending]
