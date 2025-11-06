@@ -163,17 +163,16 @@ A database optimized for storing and querying high-dimensional vectors (**Embedd
 | Acronym | Full Form | Description |
 |---------|-----------|-------------|
 | **AI** | Artificial Intelligence | General term for machine learning, LLMs, etc. |
-| **BGU** | Ben-Gurion University | University where CourseLLM is deployed |
+| **BGU** | Ben-Gurion University of the Negev | University in Israel where CourseLLM is deployed |
 | **CS** | Computer Science | Academic department, target audience |
 | **DAG** | Directed Acyclic Graph | Structure of learning trajectories (no cycles) |
-| **FERPA** | Family Educational Rights and Privacy Act | US law protecting student data privacy |
-| **GDPR** | General Data Protection Regulation | EU law protecting personal data privacy |
+| **GDPR** | General Data Protection Regulation | EU law protecting personal data privacy (applicable in Israel) |
 | **KPI** | Key Performance Indicator | Metric used to measure success |
 | **LLM** | Large Language Model | e.g., GPT-4, Claude |
 | **MVP** | Minimum Viable Product | First deployable version of a feature |
 | **PRD** | Product Requirements Document | This document |
 | **RAG** | Retrieval-Augmented Generation | LLM + document retrieval technique |
-| **TA** | Teaching Assistant | Graduate student assisting instructor |
+| **TA** | Teaching Assistant | Graduate student or course assistant helping instructor |
 
 ---
 

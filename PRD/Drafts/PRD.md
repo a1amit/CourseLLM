@@ -6,7 +6,6 @@
 - **Version:** 0.1
 - **Last Updated:** 2025-11-06
 - **Approved By:** [Pending]
-<!-- Ron -->
 ---
 
 ## 1. Overview & Vision
