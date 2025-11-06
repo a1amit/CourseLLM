@@ -187,5 +187,5 @@ A database optimized for storing and querying high-dimensional vectors (**Embedd
 ---
 
 **Status:** Draft  
-**Last Updated:** 2025-01-XX  
+**Last Updated:** 2025-11-06  
 **Reviewed By:** [Pending]
