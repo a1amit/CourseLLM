@@ -1,8 +1,8 @@
 # CourseLLM – Product Requirements Document
 
 ## Status
-- **Version:** 0.1
-- **Last Updated:** 2025-11-06
+- **Version:** 0.2
+- **Last Updated:** 2025-11-07
 - **Update Policy:** This document is updated via reviewed Pull Requests only
 
 ---
@@ -69,6 +69,12 @@ CourseLLM enhances the learning experience around existing course material throu
 - **Pain Points:** Time-consuming grading, difficulty detecting AI misuse, hard to personalize feedback.
 - **Needs:** Tools to upload course material, track student progress, generate LLM-resilient assignments.
 
+#### **Tertiary Persona: System Administrator**
+- **Name:** Ben (IT Staff)
+- **Goals:** Ensure system reliability, manage course lifecycle (creation, archival), and support instructors with onboarding.
+- **Pain Points:** Manual course setup each semester is tedious, and troubleshooting user issues without proper logs is difficult.
+- **Needs:** A dashboard to monitor system health, tools for easy course management, and access to system logs.
+
 ---
 
 ## 5. Features and Functionality
@@ -122,13 +128,13 @@ See [UserStories.md](UserStories.md) for detailed user stories.
 
 ### Risks:
 
-| Risk | Impact | Mitigation |
-|------|--------|-----------|
-| Students rely on chatbot instead of learning | High | Socratic mode, progress tracking |
-| Teachers distrust AI grading | Medium | Require manual review, transparency |
-| Privacy breach of student data | High | Encryption, access controls, compliance audit |
-| LLM generates incorrect answers | Medium | RAG grounding, confidence scores, feedback loop |
-| Adoption resistance from faculty | Medium | Pilot with early adopters, training sessions |
+| Risk | Impact | Mitigation | Monitoring Signal |
+|------|--------|------------|-------------------|
+| Students rely on chatbot instead of learning | High | Socratic mode, progress tracking | High rate of direct answer requests; Low engagement with practice quizzes. |
+| Teachers distrust AI grading | Medium | Require manual review, transparency | High rate of AI-grade overrides (>40%); Low adoption of grading feature. |
+| Privacy breach of student data | High | Encryption, access controls, compliance audit | Security audit reports; Number of access privilege escalations. |
+| LLM generates incorrect answers | Medium | RAG grounding, confidence scores, feedback loop | High rate of user downvotes on chatbot answers; Reports of hallucinations. |
+| Adoption resistance from faculty | Medium | Pilot with early adopters, training sessions | Low login rates for instructors; Low content upload rates post-onboarding. |
 
 ---
 
@@ -157,5 +163,5 @@ See [UserStories.md](UserStories.md) for detailed user stories.
 
 **Document Control:**
 - **Status:** Living Document
-- **Version:** 0.1
-- **Last Updated:** 2025-11-06
+- **Version:** 0.2
+- **Last Updated:** 2025-11-07
