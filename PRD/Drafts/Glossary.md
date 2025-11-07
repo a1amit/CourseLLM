@@ -111,6 +111,7 @@ A fictional but representative user of CourseLLM. Used to guide feature design. 
 - **Alex** (Student): 2nd-year undergrad, wants personalized learning support.
 - **Dr. Sarah** (Instructor): Faculty member, seeks efficiency and academic integrity tools.
 
+- **Ben** (System Administrator): IT staff member responsible for system health and course lifecycle management.
 ---
 
 ### Progress Monitoring (Dashboard)

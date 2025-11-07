@@ -72,6 +72,12 @@ The following metrics align with each objective. Additional KPIs to consider inc
 - **Pain Points:** Time-consuming grading, difficulty detecting AI misuse, hard to personalize feedback.
 - **Needs:** Tools to upload course material, track student progress, generate LLM-resilient assignments.
 
+
+#### **Tertiary Persona: System Administrator**
+- **Name:** Ben (IT Staff)
+- **Goals:** Ensure system reliability, manage course lifecycle (creation, archival), and support instructors with onboarding.
+- **Pain Points:** Manual course setup each semester is tedious, and troubleshooting user issues without proper logs is difficult.
+- **Needs:** A dashboard to monitor system health, tools for easy course management, and access to system logs.
 ---
 
 ## 5. Features and Functionality
