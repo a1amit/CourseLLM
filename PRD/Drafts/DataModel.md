@@ -32,7 +32,8 @@ Instructor
 CourseTopic (part of Learning Trajectory)
   ├─ has Prerequisites (other Topics)
   ├─ has MasteryCriteria
-  └─ tracked in LearningProgress
+  ├─ tracked in LearningProgress
+  └─ has many Resources
 
 CourseMaterial (RAG content)
   ├─ belongs to Course
@@ -133,6 +134,7 @@ A single topic in a course's learning trajectory (e.g., "Binary Search Trees").
 | `prerequisites` | List[CourseTopic] | Topics that must be mastered first |
 | `mastery_criteria` | JSON | e.g., `{"quiz_score": 0.8, "exercises_completed": 5}` |
 | `order` | Integer | Position in trajectory |
+| `resources` | List[Resource] | Supplementary materials for this topic |
 
 ---
 
@@ -244,6 +246,20 @@ Tracks which students are enrolled in which courses.
 
 ---
 
+### 13. Resource
+An external or supplementary piece of content linked to a topic (e.g., video, article, paper).
+
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `resource_id` | UUID | Primary key |
+| `title` | String | The title of the resource |
+| `url` | String | The URL to the resource |
+| `type` | Enum | `video`, `article`, `case_study`, `tutorial` |
+| `topics` | List[CourseTopic] | Topics this resource is relevant to |
+| `added_by` | Instructor | Who curated this resource |
+
+---
+
 ## Relationships Summary
 
 - **User** ↔ **Student/Instructor**: Inheritance (one-to-one)
@@ -251,6 +267,7 @@ Tracks which students are enrolled in which courses.
 - **Student** ↔ **Enrollment** ↔ **Course**: Many-to-many (via Enrollment)
 - **Course** ↔ **CourseTopic**: One-to-many (course has many topics)
 - **CourseTopic** ↔ **CourseTopic**: Many-to-many (prerequisites)
+- **CourseTopic** ↔ **Resource**: Many-to-many (a resource can cover multiple topics)
 - **Course** ↔ **CourseMaterial**: One-to-many (course has many materials)
 - **Course** ↔ **Assignment**: One-to-many (course has many assignments)
 - **Assignment** ↔ **Submission**: One-to-many (assignment has many submissions)
