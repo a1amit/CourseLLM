@@ -185,18 +185,25 @@ This document defines the **measurable conditions** that must be met before Cour
 
 ## Non-Functional Requirements
 
-### NFR-1: Scalability
-- [ ] System scales to ≥5 courses simultaneously (1,000 students total).
-- [ ] Database queries complete in ≤1 second (95th percentile).
+### NFR-1: Scalability & Performance
+- [ ] System supports ≥5 courses and ≥1,000 concurrent users during peak load (e.g., pre-exam week).
+- [ ] API response times for all critical endpoints are ≤500ms (95th percentile).
+- [ ] Database queries are optimized and complete in ≤200ms (95th percentile).
 
-### NFR-2: Maintainability
-- [ ] Codebase follows PEP 8 (Python) or equivalent style guide.
-- [ ] ≥80% of functions have docstrings.
-- [ ] CI/CD pipeline runs tests on every commit.
+### NFR-2: Maintainability & Code Quality
+- [ ] Codebase follows PEP 8 (Python) or equivalent style guide, enforced by an automated linter in the CI/CD pipeline.
+- [ ] Unit test coverage must be ≥85% for all new business logic.
+- [ ] A CI/CD pipeline automatically runs tests, linting, and a security scan on every pull request.
+- [ ] All major functions and classes include comprehensive docstrings explaining their purpose, parameters, and return values.
 
-### NFR-3: Extensibility
-- [ ] Plugin architecture allows adding new assignment types without core changes.
-- [ ] RAG supports swapping embedding models (OpenAI, HuggingFace, etc.).
+### NFR-3: Security
+- [ ] All endpoints are protected against common web vulnerabilities (OWASP Top 10), including SQL injection and XSS.
+- [ ] Dependencies are regularly scanned for known vulnerabilities using a tool like Snyk or Dependabot.
+- [ ] Rate limiting is implemented on authentication and other key endpoints to prevent brute-force attacks.
+
+### NFR-4: Extensibility
+- [ ] The system is designed with a modular architecture, allowing new features (e.g., a new assignment type, a different LLM provider) to be added with minimal changes to the core application.
+- [ ] RAG pipeline is abstracted to allow swapping of embedding models and vector databases via configuration.
 
 ---
 
