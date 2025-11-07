@@ -54,16 +54,23 @@ Each user story follows this structure:
   - Progress percentages per topic
   - Estimated time to complete remaining topics
 
-#### US-S2.2: Recommended Next Steps
-- **As a** student who just completed a topic
-- **I want to** receive recommendations for what to study next, including both required next topics and optional advanced topics beyond the course syllabus
-- **So that** I follow an optimal learning path and can explore deeper if interested
+#### US-S2.2: Explore Advanced Topics
+- **As a** curious student who has mastered a topic
+- **I want to** see optional, related "advanced" topics that are beyond the course syllabus
+- **So that** I can challenge myself and explore my interests more deeply.
 - **Acceptance Criteria:**
-  - System suggests next required topic based on prerequisites
-  - Optionally suggests advanced topics beyond the syllabus (clearly marked as "optional" and "not required for course completion")
-  - Chatbot explicitly states when suggesting advanced content that it's supplementary
-  - Explains why each topic is recommended
-  - Allows student to choose alternative path
+    - The system suggests 1-2 optional advanced topics after a student masters a core topic.
+    - Advanced topics are clearly marked as "Optional" and "Not Required for Grade."
+    - The chatbot will answer questions on these advanced topics but will preface answers by stating the content is supplementary.
+
+#### US-S2.3: Recommended Next Steps
+- **As a** student who just completed a topic
+- **I want to** receive recommendations for what to study next
+- **So that** I follow an optimal learning path.
+- **Acceptance Criteria:**
+  - System suggests the next required topic based on the learning trajectory's prerequisites.
+  - Explains why the topic is recommended (e.g., "This builds on what you learned in 'Arrays'").
+  - Allows student to choose an alternative unlocked topic if they wish.
 
 ---
 
