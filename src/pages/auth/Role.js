@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
+import useAuth from '../hooks/useAuth';
 
 const Role = () => {
   const { user } = useAuth();
@@ -8,7 +8,7 @@ const Role = () => {
 
   useEffect(() => {
     if (user) {
-      if (user.email.endsWith('.t')) {
+      if (user.role === 'teacher') {
         navigate('/teacher/dashboard');
       } else {
         navigate('/student/dashboard');
