@@ -4,39 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CourseLLM</title>
+    <title>CourseLLM - Start</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <div id="student-view" class="hidden">
-            <h1>Student View</h1>
-            <div id="chatbot">
-                <h2>Course Material Chatbot</h2>
-                <div id="chat-history"></div>
-                <input type="text" id="chat-input" placeholder="Ask a question...">
-                <button id="send-chat">Send</button>
-            </div>
-            <div id="learning-trajectory">
-                <h2>Personalized Learning Trajectory</h2>
-                <div id="skill-tree"></div>
-            </div>
-        </div>
-        <div id="teacher-view" class="hidden">
-            <h1>Teacher View</h1>
-            <div id="content-upload">
-                <h2>Content Upload</h2>
-                <input type="file" id="file-upload">
-                <button id="upload-button">Upload</button>
-            </div>
-            <div id="progress-monitoring">
-                <h2>Progress Monitoring</h2>
-                <div id="student-progress"></div>
-            </div>
-        </div>
+    <div id="start-page">
+        <h1>Welcome to CourseLLM</h1>
+        <button id="to-student-view">Go to Student View</button>
+        <button id="to-teacher-view">Go to Teacher View</button>
     </div>
-    <script src="app.js"></script>
-    <script src="student.js"></script>
-    <script src="teacher.js"></script>
+    <script src="start.js"></script>
 </body>
 </html>

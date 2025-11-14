@@ -1,8 +1,8 @@
 
 document.getElementById('to-student-view').addEventListener('click', () => {
-    window.location.href = 'index.html?view=student';
+    window.location.href = 'app.html?view=student';
 });
 
 document.getElementById('to-teacher-view').addEventListener('click', () => {
-    window.location.href = 'index.html?view=teacher';
+    window.location.href = 'app.html?view=teacher';
 });
