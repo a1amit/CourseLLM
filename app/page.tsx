@@ -1,55 +1,101 @@
-import { DeployButton } from "@/components/deploy-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
-import { AuthButton } from "@/components/auth-button";
-import { Hero } from "@/components/hero";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { ConnectSupabaseSteps } from "@/components/tutorial/connect-supabase-steps";
-import { SignUpUserSteps } from "@/components/tutorial/sign-up-user-steps";
-import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
+import { BookOpen, Users, Award } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center">
-      <div className="flex-1 w-full flex flex-col gap-20 items-center">
-        <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-          <div className="w-full max-w-5xl flex justify-between items-center p-3 px-5 text-sm">
-            <div className="flex gap-5 items-center font-semibold">
-              <Link href={"/"}>Next.js Supabase Starter</Link>
-              <div className="flex items-center gap-2">
-                <DeployButton />
+    <main className="min-h-screen flex flex-col">
+      {/* Navigation */}
+      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
+        <div className="w-full max-w-7xl flex justify-between items-center p-3 px-5">
+          <div className="flex items-center gap-2 font-bold text-lg">
+            <BookOpen className="w-6 h-6 text-blue-600" />
+            <span>CourseLLM</span>
+          </div>
+          <ThemeSwitcher />
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="flex-1 flex items-center justify-center px-5 py-20">
+        <div className="w-full max-w-4xl space-y-12 text-center">
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+              Welcome to CourseLLM
+            </h1>
+            <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
+              AI-enhanced learning grounded in your course context. Select your role to get started.
+            </p>
+          </div>
+
+          {/* Role Selection */}
+          <div className="grid md:grid-cols-2 gap-8 pt-12">
+            {/* Student Card */}
+            <Link
+              href="/student"
+              className="p-8 rounded-lg border-2 border-foreground/20 hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all hover:shadow-lg"
+            >
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                  <Users className="w-8 h-8 text-blue-600" />
+                </div>
+                <h2 className="text-2xl font-bold">I'm a Student</h2>
+                <p className="text-foreground/70">
+                  Access your learning tools, chatbot, practice exercises, and progress tracking.
+                </p>
+                <div className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">
+                  Enter as Student
+                </div>
+              </div>
+            </Link>
+
+            {/* Teacher Card */}
+            <Link
+              href="/teacher"
+              className="p-8 rounded-lg border-2 border-foreground/20 hover:border-green-500 hover:bg-green-50 dark:hover:bg-green-900/20 transition-all hover:shadow-lg"
+            >
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
+                  <Award className="w-8 h-8 text-green-600" />
+                </div>
+                <h2 className="text-2xl font-bold">I'm a Teacher</h2>
+                <p className="text-foreground/70">
+                  Manage your course, track student progress, validate assignments, and assist with grading.
+                </p>
+                <div className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition">
+                  Enter as Teacher
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          {/* Features Preview */}
+          <div className="pt-12 border-t border-t-foreground/10">
+            <h3 className="text-2xl font-bold mb-8">What You'll Get</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="space-y-2">
+                <p className="font-semibold">🎯 Personalized Learning</p>
+                <p className="text-sm text-foreground/70">AI-powered assistance tailored to your needs</p>
+              </div>
+              <div className="space-y-2">
+                <p className="font-semibold">📊 Progress Tracking</p>
+                <p className="text-sm text-foreground/70">Visualize your growth and mastery</p>
+              </div>
+              <div className="space-y-2">
+                <p className="font-semibold">🔒 Academic Integrity</p>
+                <p className="text-sm text-foreground/70">Designed for responsible AI use</p>
               </div>
             </div>
-            {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
           </div>
-        </nav>
-        <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">
-          <div className="text-center text-2xl font-bold">
-            Hi Ron, Vladi and Gil,
-            Hi Amit! thank you for fixing git
-          </div>
-          <Hero />
-          <main className="flex-1 flex flex-col gap-6 px-4">
-            <h2 className="font-medium text-xl mb-4">Next steps</h2>
-            {hasEnvVars ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
-          </main>
         </div>
+      </section>
 
-        <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
-          <p>
-            Powered by{" "}
-            <a
-              href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-              target="_blank"
-              className="font-bold hover:underline"
-              rel="noreferrer"
-            >
-              Supabase
-            </a>
-          </p>
-          <ThemeSwitcher />
-        </footer>
-      </div>
+      {/* Footer */}
+      <footer className="w-full flex items-center justify-center border-t border-t-foreground/10 py-8">
+        <p className="text-sm text-foreground/60">
+          © 2025 CourseLLM. All rights reserved.
+        </p>
+      </footer>
     </main>
   );
 }
